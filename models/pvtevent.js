@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var User = require('../models/user');
-var EventSchema = new mongoose.Schema(
+var pvtEventSchema = new mongoose.Schema(
   {
     "title": {
       "type": "String"
@@ -34,5 +34,5 @@ var EventSchema = new mongoose.Schema(
   }
 );
 
-var Event = mongoose.model('Event', EventSchema);
-module.exports = Event;
+var pvtEvent = mongoose.model('pvtEvent', pvtEventSchema);
+module.exports = pvtEvent;

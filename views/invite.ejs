@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title><%= event.title %></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/css/invite.css" />
+	</head>
+	<body>
+
+				<!-- One -->
+					<section id="one" class="wrapper style1">
+                    <div>
+						<header class="special">
+							<h1><%= event.title %></h1>
+						</header></br>
+						<div class="content">
+                            <p><%= event.content %></p>
+                            <p>the event starts on <%= String(event.startDate).slice(0,16) %> and ends on <%= String(event.endDate).slice(0,16) %> </p>
+                            <p>The event is held at <%= event.location %></p>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                    <a href="/accept/<%= event._id %> "><button>Accept</button></a>
+                    <button>Reject</button>
+                    </div>
+					</section>
+	</body>
+</html>

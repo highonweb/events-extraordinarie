@@ -1,127 +1,156 @@
 body {
-font-family: "Lato", sans-serif;
+    font-family: "Lato", sans-serif;
+    }
+    .nsopa{
+        background-color: rgba(255, 255, 255, 0.5);
+        width:25vw;
+    }
+    .navbar{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: inline;
+        position: absolute;
+        right: 0;
+        overflow: hidden;
+      }
+      .nav{
+          display: inline;
+          padding-left: 50px;
+          padding-top: 10px;
+          padding-right: 50px;
+          padding-bottom: 10px;
+          cursor: pointer;          
+      }
+      .nav :hover{
+        color:black
+      }
+      .nava{
+        text-decoration: none;
+        font-size:30px;
+        cursor:pointer;
+        font-weight: 400;
+        color: white;
+    }
+      span{
+        color: white;
+      }
+    .filler{
+        width: 100%;
+        height: 100%;
+    }
+    #home{
+    
+        background-image: url("../images/welco.jpg");
+        min-height: 100vh; 
+        min-width: 75vw;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #header{
+        padding: 10px;
+        position: fixed;
+        min-width: 100vw;
+        top: 0;
+        left: 0;
+    }
+    #Dashboard{
+    
+        background-image: url("../images/Dashboard.jpg");
+        min-height: 200vh; 
+        min-width: 75vw;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow-y: scroll;
+    }
+    #hostanevent{
+    
+        background-image: url("../images/hostanevent.jpg");
+        min-height: 100vh; 
+        min-width: 75vw;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #invite{
+    
+        background-image: url("../images/invite.jpg");
+        min-height: 100vh; 
+        min-width: 75vw;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow-y: scroll;
+    }
+    .greeting{
+        text-align: center;
+        z-index: 10;
+        color: black;
+        font-size: 4em;
+        margin-top: 300px;
+    }
+.invites{
+    text-align: center;
+    font-size: 2em;
+    padding:10px;
 }
-.sidenav {
-height: 100%;
-width: 0;
-position: fixed;
-z-index: 1;
-top: 0;
-left: 0;
-background-color: #111;
-overflow-x: hidden;
-transition: 0.5s;
-padding-top: 60px;
-}
-.sidenav a {
-padding: 8px 8px 8px 32px;
-text-decoration: none;
-font-size: 25px;
-color: #818181;
-display: block;
-transition: 0.3s;
-}
-.sidenav a:hover {
-color: #f1f1f1;
-}
-.sidenav .closebtn {
-position: absolute;
-top: 0;
-right: 25px;
-font-size: 36px;
-margin-left: 50px;
-}
-#main {
-transition: margin-left .5s;
-padding: 16px;
-}
-@media screen and (max-height: 450px) {
-.sidenav {padding-top: 15px;}
-.sidenav a {font-size: 18px;}
-}
-
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: inline;
-    position: absolute;
-    right: 0;
+#invitationpvt {
+    display: none;
+  }
+  body {
+    background: #555;
+  }
+  .wrapper {
+    width: 400px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 0 auto;
+  }
+  form input {
+    width: 68%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 0;
+  }
+  textarea {
+    width: 75%;
+    margin: 10px;
+  }
+  
+  .content {
+    height: 100px;
+  }
+  button{
+      margin: 10px;
   }
   li{
-      display: inline;
-      padding-left: 50px;
-      padding-top: 10px;
-      padding-right: 50px;
-      padding-bottom: 10px;
-      
+    list-style: none;
+   
   }
   a{
     text-decoration: none;
-    font-size:30px;
-    cursor:pointer;
-    font-weight: 400;
-    color: white;
-}
-  span{
-    color: white;
+    color: black;
   }
-.filler{
-    width: 100%;
-    height: 100%;
-}
-#home{
+  a:visited{
+    text-decoration: none;
+    color: #e7e7e7;
+  }
 
-    background-image: url("../images/welco.jpg");
-    min-height: 100vh; 
-    min-width: 75vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#header{
-    background-color: black;
-    padding: 10px;
-    position: fixed;
-    min-width: 100vw;
-    top: 0;
-    left: 0;
-}
-#Dashboard{
-
-    background-image: url("../images/Dashboard.jpg");
-    min-height: 100vh; 
-    min-width: 75vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#hostanevent{
-
-    background-image: url("../images/hostanevent.jpg");
-    min-height: 100vh; 
-    min-width: 75vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#invite{
-
-    background-image: url("../images/invite.jpg");
-    min-height: 100vh; 
-    min-width: 75vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#rejected{
-
-    background-image: url("../images/rejected.jpeg");
-    min-height: 100vh; 
-    min-width: 75vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .nav {
+      padding-left:20vw;
+      padding-right: 20vw;
+    }
+    .nsopa{
+      width: 91vw;
+    }
+    #header{
+      position: absolute;
+    }
+    h2.greeting{
+      margin-top: 600px;
+    }
+  }

@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
-app.set('view engine', 'pug')
+app.set('view engine', 'ejs');
 //connect to MongoDB
 var mongoDB='mongodb+srv://dbuser:dbkey@myclouddb-arw5e.mongodb.net/test?retryWrites=true&w=majority'
 mongoose.connect(mongoDB, { useNewUrlParser: true });
@@ -53,6 +53,6 @@ app.use(function (err, req, res, next) {
 });
 
 // listen on port 3000
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log('Express app listening on port 3000');
 });

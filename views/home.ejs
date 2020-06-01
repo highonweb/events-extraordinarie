@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/home.css" />
+    <script
+      src="https://kit.fontawesome.com/c5b9bcd338.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section id="home">
+      <div id="header">
+        <ul class="navbar"></ul>
+        <span style="font-size: 30px; cursor: pointer;" ><i class="fas fa-calendar-alt"></i> Events Extraordinaire..
+          
+          
+            <li class="nav" ><a class="nava" href="#invite">Dashboard</a></li>
+            <li class="nav" ><a class="nava" href="#hostanevent">Host an event</a></li>
+            <li class="nav" ><a class="nava" href="#Dashboard">Invites</a></li>
+            <li class="nav" ><a class="nava" href="/logout"><i class="fas fa-sign-out-alt"></a></i></li>
+          </ul></span>
+        </div>
+    </br></br>
+      <h1 class="greeting">Hi, <%= user.username %></h1>
+    </section>
+  </br>
+    <section id="Dashboard">
+      <div>
+        </br>
+      <h2 class="greeting">Invites</h2>
+      <ul>
+      <% for (var i = 0; i < events.length; i++) { %>
+        <li class="invites"><a href="<%= '/invite/' + events[i]._id %>" > <%= events[i].title %> </a>
+        </li>
+    <% } %>
+      </ul>
+      <h1 align="center">Private Invites</h1>
+      <ul>
+        <% for (var i = 0; i < user.pvtevents.length; i++) { %>
+          <li class="invites"><a href="<%= '/pvtinvite/' + user.pvtevents[i]._id %>" > <%= user.pvtevents[i].title %> </a>
+          </li>
+      <% } %>
+        </ul>
+      </div>
+    </section>
+  </br>
+  <section id="hostanevent">
+    <br>
+    <br>
+    <br>
+    <br>   <br>
+    <br>   <br>
+    <br>
+    <div class='wrapper'>
+      <form id="invitationpub" action="/newinvite" method="POST">
+        <h2 style="padding:10px">Invitation Type</h2>
+        <button type="button" onclick="public()">
+          Public
+        </button>
+        <button type="button" onclick="private()">
+          Private
+        </button>
+        <input type="text" name="title" placeholder="Title" />
+        <input type="text" name="location" placeholder="Location" />
+        <input type="date" name="startDate" placeholder="Start Date" />
+        <input type="date" name="endDate" placeholder="End Date" />
+        <textarea name="content" class="content" placeholder="content"></textarea>
+        <textarea name="footer" placeholder="Footer"></textarea>
+        <button>
+          Host it!
+        </button>
+      </form>
+    </div>
+    <div class="wrapper">
+    <form id="invitationpvt" action="/newpvtinvite" method="POST">
+      <h2 style="padding:10px">Invitation Type</h2>
+        <button type="button" onclick='public()'>
+          Public
+        </button>
+        <button type="button" onclick='private()'>
+          Private
+        </button>
+        <input type="text" name="recepients" placeholder="Recepients(Seperated by Space)" />
+        <input type="text" name="title" placeholder="Title" />
+        <input type="text" name="location" placeholder="Location" />
+        <input type="date" name="startDate" placeholder="Start Date" />
+        <input type="date" name="endDate" placeholder="End Date" />
+        <textarea name="content" class="content" placeholder="content"></textarea>
+        <textarea name="footer" placeholder="Footer"></textarea>
+        <button>
+          Host it!
+        </button>
+    </form>
+  </div>
+  </section>
+  </br>
+    <section id="invite">
+    </br>
+      <div class ><ul class="nsopa">
+      <% for (var i = 0; i < user.myevents.length; i++) { %>
+        <li class="invites"><%= user.myevents[i].title %></li>
+        <ul>
+          <h1 style="text-align: center;font-size:48px">Attendees</h1>
+          <% for (var j = 0; j < (user.myevents[i].attendees.length); j++) { %>
+            <li class="invites" ><%= user.myevents[i].attendees[j].username %></li>
+          <% } %> 
+        </ul>
+      <% } %>
+
+        
+        <% for (var i = 0; i < user.mypvtevents.length; i++) { %>
+          <li class="invites"><%= user.mypvtevents[i].title %></li>
+          <ul>
+            <h1 style="text-align: center;font-size:48px">Attendees</h1>
+            <% for (var j = 0; j < (user.mypvtevents[i].attendees.length); j++) { %>
+              <li class="invites" ><%= user.mypvtevents[i].attendees[j].username %></li>
+            <% } %> 
+          </ul>
+        <% } %>
+      </ul>
+        </div>
+        <div class="nsopa">
+          
+          <ul>
+            <h1>ACCEPTED INVITES</h1>
+        <% for( let i = 0; i < user.ainvites.length; i++ ) { %>
+          <li class="invites" ><%= user.ainvites[i].title %></li>
+        <% } %>
+          </ul>
+        </div>
+        <div class="nsopa">
+          <ul>
+            <h1>ACCEPTED PRIVATE INVITES</h1>
+        <% for( let i = 0; i < user.apinvites.length; i++ ) { %>
+          <li class="invites" ><%= user.apinvites[i].title %></li>
+        <% } %>
+          </ul>
+        </div>
+    </section>
+  </body>
+</html>
+<script>
+  var pubform = document.getElementById('invitationpub')
+  var pvtform = document.getElementById('invitationpvt')
+  function public() {
+    pubform.style.display = 'block'
+    pvtform.style.display = 'none'
+  }
+  function private() {
+    pubform.style.display = 'none'
+    pvtform.style.display = 'block'
+  }
+</script>

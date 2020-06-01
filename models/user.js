@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
-
+var pvtEvent = require('../models/pvtevent');
+var Event = require('../models/events')
 var UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -12,6 +13,7 @@ var UserSchema = new mongoose.Schema({
     type: String,
     unique:true,
     required: true,
+    match: /\S+@\S+\.\S+/,
   },
   password: {
     type: String,
@@ -20,9 +22,37 @@ var UserSchema = new mongoose.Schema({
   passwordconf: {
     type: String,
     required: true,
+  },
+  myevents: {
+    type :[{
+      "type" : mongoose.Schema.Types.ObjectId,
+    }]
+  },
+  ainvites: {
+    type :[{
+      "type" : mongoose.Schema.Types.ObjectId,
+      "ref" : Event,
+    }]
+  },
+  apinvites: {
+    type :[{
+      "type" : mongoose.Schema.Types.ObjectId,
+      "ref" : pvtEvent,
+    }]
+  },
+  pvtevents: {
+    type :[{
+      "type" : mongoose.Schema.Types.ObjectId,
+    "ref" : pvtEvent
+    }]
+  },
+  mypvtevents: {
+    type :[{
+      "type" : mongoose.Schema.Types.ObjectId,
+    "ref" : pvtEvent
+    }]
   }
 });
-
 //authenticate input against database
 UserSchema.statics.authenticate = function (username, password, callback) {
   User.findOne({ username: username })

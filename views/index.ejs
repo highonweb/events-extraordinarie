@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Invite Manager</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<div class="login-page">
+  <div class="form">
+    <form class="register-form" action="/" method="POST">
+      <input type="text" name="username" placeholder="username">
+      <input type="text" name="email" placeholder="email">
+      <input type="password" name="password" placeholder="Enter password">
+      <input type="password" name="passwordconf" placeholder="Confirm password">
+      <button>REGISTER</button>
+      <p class="message">Already registered? <a href="#" onclick="logIn()">Sign In</a></p>
+    </form>
+    <form class="login-form" action="/" method="POST">
+      <input type="text" name="logusername" placeholder="username">
+      <input type="password" name="logpassword" placeholder="password">
+      <button>LOGIN</button>
+      <p class="message">Not registered? <a href="#" onclick="register()">Create an account</a></p>
+    </form>
+  </div>
+</div>
+<script src="js/login.js">   </script>
