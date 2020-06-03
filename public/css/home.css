@@ -20,7 +20,8 @@ body {
           padding-top: 10px;
           padding-right: 50px;
           padding-bottom: 10px;
-          cursor: pointer;          
+          cursor: pointer;  
+                  
       }
       .nav :hover{
         color:black
@@ -99,6 +100,9 @@ body {
 #invitationpvt {
     display: none;
   }
+  #quik {
+    display: none;
+  }
   body {
     background: #555;
   }
@@ -108,7 +112,7 @@ body {
     background: rgba(255, 255, 255, 0.4);
     margin: 0 auto;
   }
-  form input {
+  form input.form {
     width: 68%;
     margin: 10px;
     padding: 10px;
@@ -133,10 +137,7 @@ body {
     text-decoration: none;
     color: black;
   }
-  a:visited{
-    text-decoration: none;
-    color: #e7e7e7;
-  }
+
 
   @media only screen and (max-width: 768px) {
     /* For mobile phones: */
@@ -149,8 +150,31 @@ body {
     }
     #header{
       position: absolute;
+      background-color: black;
     }
     h2.greeting{
       margin-top: 600px;
     }
+  }
+  .carditem{
+    font-size: 36px;
+    margin: 0 auto;
+    text-align: right;
+    border-bottom: 3px solid;
+    
+  }
+  .cardlabel{
+    font-size: 36px;
+    margin: 0 auto;
+    text-align: left;
+    border-bottom: 1px solid;
+  }
+  .card{
+    background-color: rgba(255, 255, 255, 0.5);
+    width : 25vw;
+    border-radius:5px;
+    box-shadow: 0 8px 6px -6px white;
+    margin: 0 auto ; 
+    margin-top:50px;
+    border: 5px solid white;
   }

@@ -5,8 +5,18 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="/css/invite.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Non-Veg+Market&family=Roboto:wght@700&display=swap" rel="stylesheet"> 
+ 
 	</head>
-	<body>
+	<% if (event.font == "roboto") { %>
+		<body style="font-family:Roboto, sans-serif; background: <%= event.bgcolor %>;">
+	<% } %>
+	<% if (event.font == "bangers") { %>
+		<body style="font-family:Bangers, cursive; background: <%= event.bgcolor %>;">
+	<% } %>
+	<% if (event.font == "Non-Veg") { %>
+		<body style="font-family:Non-Veg Market, cursive; background: <%= event.bgcolor %>;">
+	<% } %>
 
 				<!-- One -->
 					<section id="one" class="wrapper style1">
@@ -20,10 +30,22 @@
                             <p>The event is held at <%= event.location %></p>
                         </div>
                     </div>
-                    <div style="text-align: center;">
-                    <a href="/accept/<%= event._id %> "><button>Accept</button></a>
-                    <button>Reject</button>
+					<div style="text-align: center;">
+						<form method="POST" action="/accept/<%= event._id %>">
+							<label style='color:white;' for="coattendees">No.of people coming with you</label><br><input type="text" name="coattendees"></br>
+							<input class="" type="radio" name="pref" value="veg">
+        					<label style='color:white;' for="bangers" >Veg</label>
+							<input class="" type="radio" name="pref" value="non-Veg">
+							<label style='color:white;' for="Non-Veg">Non-Veg</label><br>
+							
+							<button>Accept</button>
+						</form>
+						<br>
+                    <a href="/home"><button>Reject</button></a>
                     </div>
 					</section>
+ 
+				
+						
 	</body>
 </html>

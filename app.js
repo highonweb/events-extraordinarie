@@ -3,13 +3,17 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
+const cors = require('cors');
+
+
+
 var MongoStore = require('connect-mongo')(session);
 app.set('view engine', 'ejs');
 //connect to MongoDB
 var mongoDB='mongodb+srv://dbuser:dbkey@myclouddb-arw5e.mongodb.net/test?retryWrites=true&w=majority'
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
-
+mongoose.set('useFindAndModify', false);
 //handle mongo error
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
@@ -29,6 +33,10 @@ app.use(session({
 // parse incoming requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(cors({
+  origin: 'http://localhost:8080'
+}));
 
 
 // serve static files from template

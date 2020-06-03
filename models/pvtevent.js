@@ -5,6 +5,15 @@ var pvtEventSchema = new mongoose.Schema(
     "title": {
       "type": "String"
     },
+    "font": {
+      "type": "String"
+    },
+    "bgcolor": {
+      "type": "String"
+    },
+    "deadline": {
+      "type": "Date"
+    },
     "content": {
       "type": "String"
     },

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../css/home.css" />
+    <script
+      src="https://kit.fontawesome.com/c5b9bcd338.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="header">
+        <ul class="navbar"></ul>
+        <span style="font-size: 30px; cursor: pointer;" ><i class="fas fa-calendar-alt"></i> Events Extraordinaire..
+            <li class="nav" ><a class="nava" href="/logout"><i class="fas fa-sign-out-alt"></a></i></li>
+          </ul></span>
+        </div>
+        <div class="">
+            <% for( let index = 0; index < info.length; index++ ) { %>
+               
+                <div class="card">
+                    <p class="cardlabel" ><%= info[index].user.username %> </p>
+                    <p class="cardlabel" >People </p><p class=carditem ><%= info[index].comingwith %> </p>
+                    <p class="cardlabel" >Meal Preferences </p><p class=carditem ><%= info[index].meal %> </p>
+                </div><br>
+              <% } %>
+        </div>
+  

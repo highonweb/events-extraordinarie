@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var pvtEvent = require('../models/pvtevent');
 var Event = require('../models/events')
+var quik = require('../models/quik')
 var UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -26,6 +27,7 @@ var UserSchema = new mongoose.Schema({
   myevents: {
     type :[{
       "type" : mongoose.Schema.Types.ObjectId,
+      "ref": Event,
     }]
   },
   ainvites: {
@@ -50,6 +52,12 @@ var UserSchema = new mongoose.Schema({
     type :[{
       "type" : mongoose.Schema.Types.ObjectId,
     "ref" : pvtEvent
+    }]
+  },
+  myquiks: {
+    type :[{
+      "type" : mongoose.Schema.Types.ObjectId,
+    "ref" : quik
     }]
   }
 });

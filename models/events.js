@@ -8,6 +8,12 @@ var EventSchema = new mongoose.Schema(
     "content": {
       "type": "String"
     },
+    "font": {
+      "type": "String"
+    },
+    "bgcolor": {
+      "type": "String"
+    },
     "footer": {
       "type": "String"
     },
@@ -15,6 +21,9 @@ var EventSchema = new mongoose.Schema(
       "type": "String"
     },
     "startDate": {
+      "type": "Date"
+    },
+    "deadline": {
       "type": "Date"
     },
     "createdby": {
@@ -28,8 +37,7 @@ var EventSchema = new mongoose.Schema(
       "type": [{
         "type" : mongoose.Schema.Types.ObjectId,
         "ref" : 'User'
-      }
-      ]
+      }]
     }
   }
 );

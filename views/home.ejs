@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="js/home.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/home.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Chelsea+Market&family=Roboto:wght@700&display=swap" rel="stylesheet"> 
     <script
       src="https://kit.fontawesome.com/c5b9bcd338.js"
       crossorigin="anonymous"
@@ -48,25 +50,37 @@
   <section id="hostanevent">
     <br>
     <br>
-    <br>
-    <br>   <br>
-    <br>   <br>
-    <br>
+
     <div class='wrapper'>
       <form id="invitationpub" action="/newinvite" method="POST">
         <h2 style="padding:10px">Invitation Type</h2>
+
         <button type="button" onclick="public()">
           Public
         </button>
         <button type="button" onclick="private()">
           Private
         </button>
-        <input type="text" name="title" placeholder="Title" />
-        <input type="text" name="location" placeholder="Location" />
-        <input type="date" name="startDate" placeholder="Start Date" />
-        <input type="date" name="endDate" placeholder="End Date" />
+        
+        <input class="form" type="text" name="title" placeholder="Title" />
+      </br>
+      <label style="font: weight 800px;">Font:</label>
+
+        <input class="" type="radio" name="font" value="bangers">
+        <label for="bangers" style="font-family: Bangers, cursive;" >Bangers</label>
+        <input class="" type="radio" name="font" value="chelsea">
+        <label style="font-family: 'Chelsea Market', cursive;" for="chelsea">Chelsea</label>
+        <input class="" type="radio" name="font" value="roboto">
+        <label style="font-family: 'Roboto', sans-serif;" for="roboto">Roboto</label> </br>
+        <label for="blue">Background color :</label>
+        <input class="" type="color" name="bgcolor" value="blue"></br>
+        <input class="form" type="text" name="location" placeholder="Location" />
+        <input class="form" type="date" name="startDate" placeholder="Start Date" />
+        <input class="form" type="date" name="endDate" placeholder="End Date" />
         <textarea name="content" class="content" placeholder="content"></textarea>
-        <textarea name="footer" placeholder="Footer"></textarea>
+        <textarea name="footer" placeholder="Footer"></textarea></br>
+        <label for="deadline">Deadline</label><br>
+        <input class="form" type="date" name="deadline" placeholder="End Date" />
         <button>
           Host it!
         </button>
@@ -75,48 +89,57 @@
     <div class="wrapper">
     <form id="invitationpvt" action="/newpvtinvite" method="POST">
       <h2 style="padding:10px">Invitation Type</h2>
+
         <button type="button" onclick='public()'>
           Public
         </button>
         <button type="button" onclick='private()'>
           Private
         </button>
-        <input type="text" name="recepients" placeholder="Recepients(Seperated by Space)" />
-        <input type="text" name="title" placeholder="Title" />
-        <input type="text" name="location" placeholder="Location" />
-        <input type="date" name="startDate" placeholder="Start Date" />
-        <input type="date" name="endDate" placeholder="End Date" />
+
+        <input class="form" type="text" name="recepients" placeholder="Recepients(Seperated by Space)" />
+        <input class="form" type="text" name="title" placeholder="Title" />
+      </br>
+      <label style="font: weight 800px;">Font:</label>
+
+        <input class="" type="radio" name="font" value="bangers">
+        <label for="bangers" style="font-family: Bangers, cursive;" >Bangers</label>
+        <input class="" type="radio" name="font" value="chelsea">
+        <label style="font-family: 'Chelsea Market', cursive;" for="chelsea">Chelsea</label>
+        <input class="" type="radio" name="font" value="roboto">
+        <label style="font-family: 'Roboto', sans-serif;" for="roboto">Roboto</label> </br>
+        <label for="blue">Background color :</label>
+        <input class="" type="color" name="bgcolor" value="blue"></br>
+        <input class="form" type="text" name="location" placeholder="Location" />
+        <input class="form" type="date" name="startDate" placeholder="Start Date" />
+        <input class="form" type="date" name="endDate" placeholder="End Date" />
         <textarea name="content" class="content" placeholder="content"></textarea>
-        <textarea name="footer" placeholder="Footer"></textarea>
+        <textarea name="footer" placeholder="Footer"></textarea></br>
+        <label for="deadline">Deadline</label><br>
+        <input class="form" type="date" name="deadline" placeholder="End Date" />
         <button>
           Host it!
         </button>
     </form>
   </div>
+  
+
   </section>
   </br>
     <section id="invite">
     </br>
-      <div class ><ul class="nsopa">
-      <% for (var i = 0; i < user.myevents.length; i++) { %>
-        <li class="invites"><%= user.myevents[i].title %></li>
+      <div class=nsopa>
         <ul>
-          <h1 style="text-align: center;font-size:48px">Attendees</h1>
-          <% for (var j = 0; j < (user.myevents[i].attendees.length); j++) { %>
-            <li class="invites" ><%= user.myevents[i].attendees[j].username %></li>
-          <% } %> 
-        </ul>
+        <h1>MY EVENTS</h1>
+        <p>click me for details!</p>
+      <% for (var i = 0; i < user.myevents.length; i++) { %>
+        <li class="invites"><a href="/info/<%= user.myevents[i]._id %>/"><%= user.myevents[i].title %></a><a href="/cancel/<%= user.myevents[i]._id %>/">&nbsp;&nbsp;&times;</a></li>     
       <% } %>
+    </ul>
 
-        
+        <ul>
         <% for (var i = 0; i < user.mypvtevents.length; i++) { %>
-          <li class="invites"><%= user.mypvtevents[i].title %></li>
-          <ul>
-            <h1 style="text-align: center;font-size:48px">Attendees</h1>
-            <% for (var j = 0; j < (user.mypvtevents[i].attendees.length); j++) { %>
-              <li class="invites" ><%= user.mypvtevents[i].attendees[j].username %></li>
-            <% } %> 
-          </ul>
+          <li class="invites"><a href="/infopvt/<%= user.mypvtevents[i]._id %>/"><%= user.mypvtevents[i].title %></a> &nbsp;&nbsp;<a href="/cancelpvt/<%= user.mypvtevents[i]._id %>/">&times;</a></li>
         <% } %>
       </ul>
         </div>
@@ -151,4 +174,5 @@
     pubform.style.display = 'none'
     pvtform.style.display = 'block'
   }
+
 </script>
