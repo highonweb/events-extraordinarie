@@ -3,7 +3,6 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
-const cors = require('cors');
 
 
 
@@ -33,10 +32,6 @@ app.use(session({
 // parse incoming requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-app.use(cors({
-  origin: 'http://localhost:8080'
-}));
 
 
 // serve static files from template

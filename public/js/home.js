@@ -12,12 +12,13 @@ if (window.Notification) {
       .then(async (worker) => {
           console.log( await worker)
         return worker.pushManager.subscribe({
-            applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
+            applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
+            userVisibleOnly:true
           });
       });
   }
   function subscribe(subscription) {
-    return fetch('http://localhost:3000/subscribe', {
+    return fetch('https://events-extraordinaire.herokuapp.com/subscribe', {
       method: 'POST',
       body: JSON.stringify(subscription),
       headers: {

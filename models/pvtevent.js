@@ -39,8 +39,14 @@ var pvtEventSchema = new mongoose.Schema(
         "ref" : 'User'
       }
       ]
+    },
+    "came": {
+      "type": [{
+        "type" : String,
+      }]
     }
   }
+  
 );
 
 var pvtEvent = mongoose.model('pvtEvent', pvtEventSchema);

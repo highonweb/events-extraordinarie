@@ -1,9 +1,9 @@
 body {
-    font-family: "Lato", sans-serif;
+    font-family: "Roboto", sans-serif;
     }
     .nsopa{
         background-color: rgba(255, 255, 255, 0.5);
-        width:25vw;
+        width:50vw;
     }
     .navbar{
         list-style-type: none;
@@ -104,7 +104,7 @@ body {
     display: none;
   }
   body {
-    background: #555;
+    background: #000;
   }
   .wrapper {
     width: 400px;
@@ -136,6 +136,13 @@ body {
   a{
     text-decoration: none;
     color: black;
+  }
+  .right{
+    text-align:right;
+  }
+  .left{
+    text-align:left;
+    font-size: 35px;
   }
 
 
@@ -177,4 +184,15 @@ body {
     margin: 0 auto ; 
     margin-top:50px;
     border: 5px solid white;
+  }
+  table {
+    background-color: black;
+    border-spacing: 0.5rem;
+    font-size: 30px;
+    vertical-align: middle;
+    text-align: center; 
+    padding: 1px;
+  }
+  td,th{
+    background-color: white;
   }

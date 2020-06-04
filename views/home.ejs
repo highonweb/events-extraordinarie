@@ -80,7 +80,7 @@
         <textarea name="content" class="content" placeholder="content"></textarea>
         <textarea name="footer" placeholder="Footer"></textarea></br>
         <label for="deadline">Deadline</label><br>
-        <input class="form" type="date" name="deadline" placeholder="End Date" />
+        <input class="form" type="date" name="deadline" placeholder="End Date" /><br>
         <button>
           Host it!
         </button>
@@ -116,7 +116,7 @@
         <textarea name="content" class="content" placeholder="content"></textarea>
         <textarea name="footer" placeholder="Footer"></textarea></br>
         <label for="deadline">Deadline</label><br>
-        <input class="form" type="date" name="deadline" placeholder="End Date" />
+        <input class="form" type="date" name="deadline" placeholder="End Date" /><br>
         <button>
           Host it!
         </button>
@@ -133,13 +133,13 @@
         <h1>MY EVENTS</h1>
         <p>click me for details!</p>
       <% for (var i = 0; i < user.myevents.length; i++) { %>
-        <li class="invites"><a href="/info/<%= user.myevents[i]._id %>/"><%= user.myevents[i].title %></a><a href="/cancel/<%= user.myevents[i]._id %>/">&nbsp;&nbsp;&times;</a></li>     
+        <li class="left"><a class=left href="/info/<%= user.myevents[i]._id %>/"><%= user.myevents[i].title %></a>&nbsp;&nbsp;<a href="/attendance/<%= user.myevents[i]._id %>/"><i class="fas fa-calendar-check"></i></a> &nbsp;<a class=right href="/cancel/<%= user.myevents[i]._id %>/"><i class="fas fa-window-close"></i></a></li>     
       <% } %>
     </ul>
 
         <ul>
         <% for (var i = 0; i < user.mypvtevents.length; i++) { %>
-          <li class="invites"><a href="/infopvt/<%= user.mypvtevents[i]._id %>/"><%= user.mypvtevents[i].title %></a> &nbsp;&nbsp;<a href="/cancelpvt/<%= user.mypvtevents[i]._id %>/">&times;</a></li>
+          <li class="left"><a class=left href="/infopvt/<%= user.mypvtevents[i]._id %>/"><%= user.mypvtevents[i].title %></a> &nbsp;&nbsp;<a href="/attendancepvt/<%= user.mypvtevents[i]._id %>/"><i class="fas fa-calendar-check"></i></a> &nbsp;</a><a class=right href="/cancelpvt/<%= user.mypvtevents[i]._id %>/"><i class="fas fa-window-close"></i></a></li>
         <% } %>
       </ul>
         </div>

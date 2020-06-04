@@ -221,12 +221,40 @@ router.post('/acceptpvt/:id', function (req,res, next){
       pvtEventuser.create(data)
     })
   })
-  
-    
     res.redirect('/home')
   })
   
+  router.get('/attendancepvt/:id', function (req,res, next){
+    console.log(req.params.id)
+    pvtEvent.findById(req.params.id).exec(async function (err,pvtevent){
+      console.log(pvtevent)
+      pvtEventuser.find({event: pvtevent}).populate({path : 'user', Model:User})
+      .exec((error,pevent)=>{
+        res.render('attendance',{pevent:pevent,event:pvtevent})
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+      })   
 
+
+    })
+  })
+
+
+  router.get('/attendance/:id', function (req,res, next){
+    Event.findById(req.params.id).exec(async function (err,event){
+      Eventuser.find({event: event}).populate({path : 'user', Model:User})
+      .exec((error,pevent)=>{
+        res.render('attendance',{pevent:pevent,event:event})
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+      })   
+
+
+    })
+  })
+    
 
 // GET route after registering
 router.get('/home', function (req, res, next) {
@@ -331,6 +359,22 @@ router.get('/logout', function (req, res, next) {
     });
   }
 });
+
+router.get('/came/:name/:id', function (req, res, next) {
+  Event.findByIdAndUpdate(req.params.id,{$push:{came:req.params.name}}).exec(
+    function (err,data) {
+      if(data == null){
+        pvtEvent.findByIdAndUpdate(req.params.id,{$push:{came:req.params.name}}).exec()
+  res.redirect('/attendancepvt/'+req.params.id)
+
+      }
+      else {
+        res.redirect('/attendance/'+req.params.id)
+      }
+    }
+  )
+  
+})
 
 module.exports = router;
 
