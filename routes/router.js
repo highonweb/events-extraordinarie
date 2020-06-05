@@ -8,6 +8,10 @@ var Eventuser = require('../models/event-user');
 var pvtEventuser = require('../models/pvtevent-user');
 const webpush = require('web-push');
 var nodemailer = require('nodemailer');
+var fs = require('fs');
+const multer = require('multer');
+var upload = multer({ dest: 'uploads/' })
+
 
 var transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -77,13 +81,18 @@ router.post('/', function (req, res, next) {
   }
 })
 
-router.post('/newpvtinvite' ,function (req, res, next ) {
+router.post('/newpvtinvite',upload.single('img') ,function (req, res, next ) {
   User.findById(req.session.userId)
   .exec(function (error, user){
+    console.log(req.body)
+    var img = fs.readFileSync(req.file.path);
+    var encode_image = img.toString('base64');
+    var image =  new Buffer(encode_image, 'base64')
     var eventData = {
-
       title: req.body.title,
       font: req.body.font,
+      img: image,
+      align: req.body.align,
       bgcolor: req.body.bgcolor,
       deadline: req.body.deadline,
       location: req.body.location,
@@ -93,6 +102,8 @@ router.post('/newpvtinvite' ,function (req, res, next ) {
       footer: req.body.footer,
       createdby: user,
     }
+   
+
         var rec = req.body.recepients.split(' ')
         
         pvtEvent.create(eventData, function (error, pvtEvent){
@@ -126,12 +137,17 @@ router.post('/newpvtinvite' ,function (req, res, next ) {
     });
 
     
-router.post('/newinvite' ,function (req, res, next ) {
+router.post('/newinvite',upload.single('img')  ,function (req, res, next ) {
   User.findById(req.session.userId).exec(function (error, user){
     console.log('New invite')
+    var img = fs.readFileSync(req.file.path);
+    var encode_image = img.toString('base64');
+    var image =  new Buffer(encode_image, 'base64')
     var eventData = {
     title: req.body.title,
     font: req.body.font,
+    img: image,
+    align: req.body.align,
     bgcolor: req.body.bgcolor,
     deadline: req.body.deadline,
     location: req.body.location,
@@ -167,6 +183,7 @@ router.post('/newinvite' ,function (req, res, next ) {
 
 })
 })
+
 router.get('/invite/:id', function (req,res,next){
   Event.findById(req.params.id).exec(function(error, event){
     res.render('invite' ,{event: event})
@@ -359,6 +376,7 @@ router.get('/logout', function (req, res, next) {
     });
   }
 });
+
 
 router.get('/came/:name/:id', function (req, res, next) {
   Event.findByIdAndUpdate(req.params.id,{$push:{came:req.params.name}}).exec(

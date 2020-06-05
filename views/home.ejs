@@ -52,7 +52,7 @@
     <br>
 
     <div class='wrapper'>
-      <form id="invitationpub" action="/newinvite" method="POST">
+      <form id="invitationpub" action="/newinvite" method="POST" enctype="multipart/form-data">
         <h2 style="padding:10px">Invitation Type</h2>
 
         <button type="button" onclick="public()">
@@ -74,6 +74,14 @@
         <label style="font-family: 'Roboto', sans-serif;" for="roboto">Roboto</label> </br>
         <label for="blue">Background color :</label>
         <input class="" type="color" name="bgcolor" value="blue"></br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<label class="form" for="img">Image :</label>
+        <input class="form" type="file" name="img" />
+        <input class="" type="radio" name="align" value="left">
+        <label for="left">Left</label>
+        <input class="" type="radio" name="align" value="center">
+        <label for="center">Center</label>
+        <input class="" type="radio" name="align" value="right">
+        <label for="right">Right</label> </br>
         <input class="form" type="text" name="location" placeholder="Location" />
         <input class="form" type="date" name="startDate" placeholder="Start Date" />
         <input class="form" type="date" name="endDate" placeholder="End Date" />
@@ -87,7 +95,7 @@
       </form>
     </div>
     <div class="wrapper">
-    <form id="invitationpvt" action="/newpvtinvite" method="POST">
+    <form id="invitationpvt" action="/newpvtinvite" method="POST" enctype="multipart/form-data" >
       <h2 style="padding:10px">Invitation Type</h2>
 
         <button type="button" onclick='public()'>
@@ -110,6 +118,14 @@
         <label style="font-family: 'Roboto', sans-serif;" for="roboto">Roboto</label> </br>
         <label for="blue">Background color :</label>
         <input class="" type="color" name="bgcolor" value="blue"></br>
+&nbsp;&nbsp;&nbsp;&nbsp;<label class="form" for="img">Image :</label>
+        <input class="form" type="file" name="img" />
+        <input class="" type="radio" name="align" value="left">
+        <label for="left">Left</label>
+        <input class="" type="radio" name="align" value="center">
+        <label for="center">Center</label>
+        <input class="" type="radio" name="align" value="right">
+        <label for="right">Right</label> </br>
         <input class="form" type="text" name="location" placeholder="Location" />
         <input class="form" type="date" name="startDate" placeholder="Start Date" />
         <input class="form" type="date" name="endDate" placeholder="End Date" />

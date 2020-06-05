@@ -8,6 +8,12 @@ var pvtEventSchema = new mongoose.Schema(
     "font": {
       "type": "String"
     },
+    "img": {
+      "type": "buffer"
+    },
+    "align": {
+      "type": "String"
+    },
     "bgcolor": {
       "type": "String"
     },

@@ -24,6 +24,8 @@
 						<header class="special">
 							<h1><%= event.title %></h1>
 						</header></br>
+						<img src="data:image/jpeg;base64, 
+						<%=event.img.toString('base64')%>">
 						<div class="content">
                             <p><%= event.content %></p>
                             <p>the event starts on <%= String(event.startDate).slice(0,16) %> and ends on <%= String(event.endDate).slice(0,16) %> </p>
