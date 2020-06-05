@@ -123,7 +123,7 @@ router.post('/newpvtinvite',upload.single('img') ,function (req, res, next ) {
                 from: 'eventsextraordinaire2020@gmail.com',
                 to: user.email,
                 subject: pvtEvent.title,
-                text: 'localhost:3000/pvtinvite/'+pvtEvent.id
+                text: 'events-extraordinarie.herokuapp.com/pvtinvite/'+pvtEvent.id
               };
               transporter.sendMail(mailOptions)
             });
